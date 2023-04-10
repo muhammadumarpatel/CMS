@@ -1,0 +1,23 @@
+{% extends "coupons/base.html" %}
+
+{% block content %}
+    <h1>Redeem Coupon</h1>
+    <p>Coupon Code: {{ coupon.coupon_code }}</p>
+    <p>Start Date: {{ coupon.start_date }}</p>
+    <p>Expiry Date: {{ coupon.expiry_date }}</p>
+    <p>Scheme Details: {{ coupon.scheme_details }}</p>
+    <p>Created By: {{ coupon.created_by }}</p>
+    <p>Redeemable Count: {{ coupon.redeemable_count }}</p>
+    <p>Redeemed Count: {{ coupon.redeemed_count }}</p>
+    
+    <form method="post">
+        {% csrf_token %}
+        <label for="customer_mobile">Customer Mobile:</label>
+        <input type="text" name="customer_mobile" required>
+        <br>
+        <label for="distributor_code">Distributor Code:</label>
+        <input type="text" name="distributor_code" required>
+        <br>
+        <button type="submit">Redeem Coupon</button>
+    </form>
+{% endblock %}
